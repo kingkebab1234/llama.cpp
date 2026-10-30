@@ -1434,6 +1434,7 @@ void llama_batch_compat::init(llama_batch_ext & dst, const llama_batch & batch_i
         llama_batch_ext::token t;
 
         // seq_ids
+        GGML_ASSERT(n_sid <= batch_inp.n_seq_max);
         for (int32_t s = 0; s < n_sid; ++s) {
             t.seq_ids.insert(sids[s]);
         }
